@@ -1,0 +1,22 @@
+xb:
+  t: "T3 — choose next implementation step"
+  history:
+    - "T1: The project goal was defined as a lightweight cross-model task handoff method."
+    - "T2: A full archive format was rejected because it was too long for frequent transfer."
+    - "T3: The current focus is selecting a minimal runtime format."
+  state: >
+    The project is no longer designing a full memory system.
+    It is now focused on a minimal handoff card that another model can read quickly.
+    The next step is to test whether the card preserves enough task state.
+  relations:
+    - [full_archive, too_heavy_for, frequent_transfer]
+    - [minimal_card, intended_for, cross_model_handoff]
+    - [dropped_paths, prevent, repeated_old_solutions]
+  dropped:
+    - ["full memory system", "too heavy for the current goal"]
+    - ["normal summary only", "does not preserve dropped paths and gaps reliably"]
+  gaps:
+    - "No benchmark has tested this format against normal summaries yet."
+  request: >
+    Design a simple A/B test comparing normal summary vs xb handoff.
+    Include what to measure and what counts as failure.

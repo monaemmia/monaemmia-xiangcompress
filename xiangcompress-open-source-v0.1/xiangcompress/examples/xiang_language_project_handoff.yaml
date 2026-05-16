@@ -1,0 +1,26 @@
+xb:
+  t: "XiangCompress-Min open-source preparation"
+  history:
+    - "Xiang-1 was defined as a broader cognitive payload protocol for LLM/Agent systems."
+    - "XiangCompress was separated from Xiang Language as a lightweight pre-tool."
+    - "The project decision is to open-source XiangCompress-Min directly."
+    - "The core value is cross-model task handoff, not patent protection."
+  state: >
+    XiangCompress-Min should be packaged as a small open-source project.
+    It should include README, templates, examples, an A/B test guide, and a simple validator.
+    It should not claim to be Xiang Language itself.
+  relations:
+    - [XiangCompress, is_pretool_for, Xiang_Language]
+    - [XiangCompress_Min, preserves, task_handoff_state]
+    - [open_source_project, needs, README_templates_examples]
+    - [README, should_clarify, not_Xiang_Language_itself]
+  dropped:
+    - ["patent-first strategy", "user decided XiangCompress has limited patent value and should be open-sourced"]
+    - ["overclaiming as full Xiang Language", "XiangCompress is only a pre-tool"]
+  gaps:
+    - "Target GitHub repository is not confirmed."
+    - "Whether to make the repository public is not confirmed."
+  request: >
+    Prepare the minimal open-source project files for XiangCompress-Min.
+    Do not overstate novelty.
+    Keep the project simple and directly usable.
