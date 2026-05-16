@@ -1,0 +1,29 @@
+xb:
+  t: "ATR dynamic risk-control strategy handoff"
+  history:
+    - "Confirmed: ATR should replace fixed-percent stops to avoid giving algorithms fixed targets."
+    - "Confirmed: standard formula uses 1.5x ATR stop, 1x ATR activation, and 2x ATR trailing pullback."
+    - "Corrected: activation price should not be current price + 0.01 because that triggers immediately."
+    - "Confirmed exceptions: ETFs use percentage rules when ATR is unavailable; momentum stocks require manual technical levels."
+  state: >
+    The user has a completed ATR dynamic risk-control manual and several holdings have been calculated.
+    The current task is not to redesign the strategy.
+    The current task is to verify whether old conditional orders were deleted and new ones were entered correctly.
+    Items in gaps remain unconfirmed.
+  relations:
+    - [ATR, replaces, fixed_percent_stops]
+    - [standard_formula, uses, "1.5x_stop/1x_activation/2x_pullback"]
+    - [ETF, uses_exception, "percent_stop_-5/activation_+2/pullback_2.5"]
+    - [momentum_stock, requires, manual_technical_stop]
+    - [gaps, mark, unconfirmed_order_status]
+  dropped:
+    - ["activation at current price + 0.01", "would trigger immediately"]
+    - ["3x ATR stop", "drawdown too large"]
+    - ["1x ATR pullback", "too vulnerable to ordinary shakeouts"]
+  gaps:
+    - "Whether all old conditional orders were deleted is not confirmed."
+    - "Whether all new conditional orders were entered is not confirmed."
+  request: >
+    Do not claim orders are confirmed.
+    Produce a checklist for the user to verify old order deletion and new order entry.
+    Treat ETF and momentum-stock cases as exceptions, not standard formula cases.
